@@ -1,0 +1,25 @@
+{
+  "name": "chuttt",
+  "version": "1.0.0",
+  "description": "___ ### _Another small and probably useless project that makes me learn new stuff._",
+  "homepage": "https://github.com/FromBenj/Chuttt#readme",
+  "bugs": {
+    "url": "https://github.com/FromBenj/Chuttt/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FromBenj/Chuttt.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "lowdb": "^7.0.1"
+  }
+}

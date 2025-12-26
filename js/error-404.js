@@ -2,7 +2,6 @@ export async function get404Video() {
     fetch('./error-404.html', { method: 'GET' })
         .then(response => response.text())
         .then(data => {
-            console.log(data);
             createMPage(data);
             backButton();
         })

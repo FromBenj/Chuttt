@@ -116,3 +116,46 @@ footer {
 #go-back:hover{
     background-color: #9492f6;
 }
+
+#newsletter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffe3b1;
+}
+
+#newsletter {
+    margin: 0.5rem;
+}
+
+#newsletter-presentation {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+#user-email-intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#user-email {
+    height: auto;
+    margin: 0 1rem;
+    padding: 0 12px;
+    font-size: 18px;
+}
+
+#newsletter-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#newsletter-button-container:hover {
+    opacity: 0.8;
+}
+
+#newsletter-button {
+    cursor: pointer;
+}
