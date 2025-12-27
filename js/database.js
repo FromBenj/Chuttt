@@ -26,8 +26,7 @@ async function saveUser() {
     const newUser = {
         email: email,
         userCode: newUserCode,
-    }
-    console.log(JSON.stringify(newUser));
+    };
     try {
         const response = await fetch('http://localhost:3000/api/save', {
             method: 'POST',
@@ -36,14 +35,22 @@ async function saveUser() {
             },
             body: JSON.stringify(newUser)
         });
-        const result = await response.json();
-        console.log('Server response:', result);
 
-        return newUser;
-    } catch (err) {
-        console.error('Failed to send data:', err);
+        const text = await response.text();
+        console.log('Response text:', text);
+
+        // Only parse if there's content
+        if (text) {
+            const data = JSON.parse(text);
+            console.log('Success:', data);
+        } else {
+            console.log('Empty response from server');
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
     }
 }
 
-const newUser = await saveUser();
+await saveUser();
 

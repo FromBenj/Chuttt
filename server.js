@@ -1,34 +1,27 @@
 import express from 'express';
 import cors from 'cors';
-import { JSONFilePreset } from 'lowdb/node';
+import {JSONFilePreset} from 'lowdb/node';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import {fileURLToPath} from 'url';
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.listen(3000,() => {
+app.listen(3000, () => {
     console.log('Server is definitely listening on http://localhost:3000');
 });
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const jsonFilePath = path.join(__dirname, 'db', 'data.json');
-const defaultData = {users: []}
-const db = await JSONFilePreset(jsonFilePath, defaultData);
-
 app.post('/api/save', async (req, res) => {
-    const newUser = req.body;
-    console.log(newUser)
+    const defaultData = {users: []};
+    const db = await JSONFilePreset('db.json', defaultData);
     try {
-        await db.update((data) => {
-            if (!data.users) {
-                data.users = [];
-            }
-            data.users.push(newUser);
-        });
-        res.json({ status: "Success", message: "Data saved!" });
+        let newUser = req.body;
+        console.log(newUser);
+        await db.update(({ users }) => users.push(newUser))
+
+        res.json({ success: true, user: newUser });
     } catch (error) {
-        console.error("Save Error:", error);
+        console.error('Server error:', error);
+        res.status(500).json({ success: false, error: error.message });
     }
 });
