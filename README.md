@@ -1,6 +1,7 @@
 # Chuttt
 ___
-### _Another small and probably useless project that makes me learn new stuff [in progress...]_
+### _Another small and probably useless project that makes me learn new stuff_
+#### _[in progress...]_
 
 ### What it is
 
